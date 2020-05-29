@@ -1,6 +1,6 @@
 defmodule OSMParsingTest do
   use ExUnit.Case
-  doctest OSM.XML.Handler
+  doctest OSM.XML
 
   test "parses example from osm wiki" do
     example = """
