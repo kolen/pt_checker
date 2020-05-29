@@ -1,4 +1,11 @@
 defmodule OSM.XML do
+  @moduledoc """
+  Parsing of OSM XML files.
+
+  Parsing of [OSM XML](https://wiki.openstreetmap.org/wiki/OSM_XML) files.
+
+  """
+
   @doc """
   Parses OSM XML file into maps of nodes, ways and relations.
   """
