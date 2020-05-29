@@ -2,10 +2,6 @@ defmodule OSMParsingTest do
   use ExUnit.Case
   doctest OSM.XML.Handler
 
-  test "greets the world" do
-    assert PtChecker.hello() == :world
-  end
-
   test "parses example from osm wiki" do
     example = """
     <?xml version="1.0" encoding="UTF-8"?>
