@@ -125,14 +125,14 @@ defmodule PtChecker.Continuity do
 
   # Examples
 
-  iex> PtChecker.Continuity.directions [
-  ...>   %OSM.Way{id: 1, node_ids: [1, 2, 3]},
-  ...>   %OSM.Way{id: 2, node_ids: [3, 2, 1]},
-  ...>   %OSM.Way{id: 3, node_ids: [3, 2, 4]},
-  ...>   %OSM.Way{id: 4, node_ids: [5, 6, 7]},
-  ...>   %OSM.Way{id: 5, node_ids: [5, 7, 8]}
-  ...> ]
-  [[{1, :backward}, {2, :backward}, {3, :forward}], [{4, :backward}, {5, :forward}]]
+      iex> PtChecker.Continuity.directions [
+      ...>   %OSM.Way{id: 1, node_ids: [1, 2, 3]},
+      ...>   %OSM.Way{id: 2, node_ids: [3, 2, 1]},
+      ...>   %OSM.Way{id: 3, node_ids: [3, 2, 4]},
+      ...>   %OSM.Way{id: 4, node_ids: [5, 6, 7]},
+      ...>   %OSM.Way{id: 5, node_ids: [5, 7, 8]}
+      ...> ]
+      [[{1, :backward}, {2, :backward}, {3, :forward}], [{4, :backward}, {5, :forward}]]
   """
   def directions(ways) do
     Enum.reverse(directions_(ways, []))
