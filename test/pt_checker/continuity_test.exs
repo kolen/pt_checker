@@ -1,5 +1,5 @@
 defmodule PtChecker.ContinuityTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: true
   alias PtChecker.Continuity, as: C
   doctest PtChecker.Continuity
 

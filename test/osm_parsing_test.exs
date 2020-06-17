@@ -1,5 +1,5 @@
 defmodule OSMParsingTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: true
   doctest OSM.XML
 
   test "parses example from osm wiki" do
