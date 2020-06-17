@@ -120,6 +120,8 @@ defmodule PtChecker.Continuity do
     end
   end
 
+  @type ways_directions :: [{way_id :: integer(), direction :: atom()}]
+
   @doc """
   Returns groups of connected components of ways with their directions.
 
@@ -134,6 +136,7 @@ defmodule PtChecker.Continuity do
       ...> ]
       [[{1, :backward}, {2, :backward}, {3, :forward}], [{4, :backward}, {5, :forward}]]
   """
+  @spec directions([OSM.Way.t()]) :: ways_directions
   def directions(ways) do
     Enum.reverse(directions_(ways, []))
   end
@@ -156,6 +159,7 @@ defmodule PtChecker.Continuity do
   @doc """
   Returns directions along with way ids for route's ways
   """
+  @spec route_directions(OSM.dataset(), integer()) :: ways_directions()
   def route_directions({nodes, ways, relations}, relation_id) do
     ways = route_ways({nodes, ways, relations}, relation_id)
     directions(ways)
