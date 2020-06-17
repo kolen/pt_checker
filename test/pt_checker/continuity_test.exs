@@ -3,24 +3,6 @@ defmodule PtChecker.ContinuityTest do
   alias PtChecker.Continuity, as: C
   doctest PtChecker.Continuity
 
-  # describe "detects continuous groups" do
-  #   #     a
-  #   #   ,----,
-  #   #  1      2----3--<--4-----5 6---7
-  #   #   `----'
-  #   #     b
-  #   example_ways = [
-  #     %OSM.Way{id: 1, node_ids: [1, 2]},
-  #     %OSM.Way{id: 2, node_ids: [1, 2]},
-  #     %OSM.Way{id: 3, node_ids: [2, 3]},
-  #     %OSM.Way{id: 4, node_ids: [4, 3], tags: %{"oneway" => "yes"}},
-  #     %OSM.Way{id: 4, node_ids: [5, 4]},
-  #     %OSM.Way{id: 4, node_ids: [6, 7]}
-  #   ]
-
-  #   groups = PtChecker.Continuity.continuity_segments(example_ways)
-  # end
-
   describe "direction_single" do
     test "treats loop way as forward" do
       assert C.direction_single(1, %OSM.Way{node_ids: [1, 2, 3, 1]}) == {:unknown_forward, 1}
@@ -94,6 +76,29 @@ defmodule PtChecker.ContinuityTest do
                %OSM.Way{id: 3, node_ids: [3, 2, 4]},
                %OSM.Way{id: 4, node_ids: [5, 6, 7]}
              ]) == [[{1, :backward}, {2, :backward}, {3, :forward}], [{4, :unknown_forward}]]
+    end
+
+    test "basic 2" do
+      #     (1)
+      #   ,----,  (3)  (4)   (5)    (6)
+      #  1      2----3--<--4-----5 6---7
+      #   `----'
+      #     (2)
+      example_ways = [
+        %OSM.Way{id: 1, node_ids: [1, 2]},
+        %OSM.Way{id: 2, node_ids: [1, 2]},
+        %OSM.Way{id: 3, node_ids: [2, 3]},
+        %OSM.Way{id: 4, node_ids: [4, 3], tags: %{"oneway" => "yes"}},
+        %OSM.Way{id: 5, node_ids: [5, 4]},
+        %OSM.Way{id: 6, node_ids: [6, 7]}
+      ]
+
+      assert C.directions(example_ways) == [
+               [{1, :backward}, {2, :forward}, {3, :forward}],
+               [{4, :forward}],
+               [{5, :unknown_forward}],
+               [{6, :unknown_forward}]
+             ]
     end
   end
 end
