@@ -4,4 +4,6 @@ defmodule OSM do
           %{optional(integer()) => OSM.Way.t()},
           %{optional(integer()) => OSM.Relation.t()}
         }
+
+  @type ref :: {type :: :node | :way | :relation, id :: integer()}
 end
