@@ -1,5 +1,5 @@
 defmodule PtChecker.CheckContext do
-  defstruct relation_id: nil, dataset: {%{}, %{}, %{}}, ways_directions: nil
+  defstruct relation_id: nil, dataset: {%{}, %{}, %{}}, ways_directions: nil, halt: false
 
   @type t :: %PtChecker.CheckContext{
           relation_id: integer(),
