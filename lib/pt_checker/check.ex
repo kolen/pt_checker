@@ -1,6 +1,7 @@
 defmodule PtChecker.Check do
-  @type message ::
-          {id :: String.t(), severity :: :notice | :warning | :error, references :: [OSM.ref()]}
-
-  @callback check(PtChecker.CheckContext.t()) :: [message()]
+  @callback(
+    check(PtChecker.CheckContext.t()) ::
+      PtChecker.CheckContext.t(),
+    [PtChecker.Result.message()]
+  )
 end
