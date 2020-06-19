@@ -50,7 +50,7 @@ defmodule PtChecker.Checks.Members do
       |> Enum.map(fn {type, id, _role} -> {type, id} end)
 
     errors_if(context, [
-      {{:members_wrong_order, :error, []}, state == :bad},
+      {{:members_wrong_order, :warning, []}, state == :bad},
       {{:members_extra, :error, extras}, extras != []},
       {{:members_non_node_stops, :error, non_node_stops}, non_node_stops != []}
     ])
