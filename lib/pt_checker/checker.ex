@@ -5,7 +5,8 @@ defmodule PtChecker.Checker do
     checks = [
       Checks.Main,
       Checks.Informational,
-      Checks.Ways
+      Checks.Ways,
+      Checks.Members
     ]
 
     init_context = %PtChecker.CheckContext{dataset: dataset, relation_id: relation_id}
