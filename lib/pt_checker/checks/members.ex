@@ -15,7 +15,15 @@ defmodule PtChecker.Checks.Members do
     {state, extras} =
       Enum.reduce(rel.members, {:stops, []}, fn {type, id, role}, {state, extras} ->
         case role do
-          x when x in ["stop", "platform"] ->
+          x
+          when x in [
+                 "stop",
+                 "platform",
+                 "stop_entry_only",
+                 "stop_exit_only",
+                 "platform_entry_only",
+                 "platform_exit_only"
+               ] ->
             case state do
               :stops -> {:stops, extras}
               :platforms -> {:bad, extras}
@@ -37,7 +45,7 @@ defmodule PtChecker.Checks.Members do
     non_node_stops =
       rel.members
       |> Enum.filter(fn {type, _id, role} ->
-        type != :node && role == "stop"
+        type != :node && role in ["stop", "stop_entry_only", "stop_exit_only"]
       end)
       |> Enum.map(fn {type, id, _role} -> {type, id} end)
 
