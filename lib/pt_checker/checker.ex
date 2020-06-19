@@ -2,11 +2,8 @@ defmodule PtChecker.Checker do
   alias PtChecker.Checks
 
   def check_route(dataset, relation_id) do
-    # TODO: check if it's a transport route and not random relation
-    # TODO: check if it's not v1 route, don't bother validating v1,
-    # don't bother validating garbage version
-
     checks = [
+      Checks.Main,
       Checks.Informational,
       Checks.Ways
     ]
