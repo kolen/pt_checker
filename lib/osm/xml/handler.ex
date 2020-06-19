@@ -109,7 +109,26 @@ defmodule OSM.XML.Handler do
   end
 
   defp version_info(attrs) do
-    {:ok, timestamp, 0} = DateTime.from_iso8601(attrs["timestamp"])
+    changeset_id =
+      with s when is_binary(s) <- attrs["changeset"] do
+        String.to_integer(s)
+      end
+
+    version =
+      with s when is_binary(s) <- attrs["version"] do
+        String.to_integer(s)
+      end
+
+    uid =
+      with s when is_binary(s) <- attrs["uid"] do
+        String.to_integer(s)
+      end
+
+    timestamp =
+      with ts_s when is_binary(ts_s) <- attrs["timestamp"] do
+        {:ok, timestamp, 0} = DateTime.from_iso8601(ts_s)
+        timestamp
+      end
 
     visible =
       case attrs["visible"] do
@@ -118,13 +137,17 @@ defmodule OSM.XML.Handler do
         _ -> nil
       end
 
-    %OSM.VersionInfo{
-      changeset_id: attrs["changeset"] |> String.to_integer(),
-      version: attrs["version"] |> String.to_integer(),
-      timestamp: timestamp,
-      visible: visible,
-      user_id: attrs["uid"] |> String.to_integer(),
-      user: attrs["user"]
-    }
+    if changeset_id == nil && version == nil && timestamp == nil && visible do
+      nil
+    else
+      %OSM.VersionInfo{
+        changeset_id: changeset_id,
+        version: version,
+        timestamp: timestamp,
+        visible: visible,
+        user_id: uid,
+        user: attrs["user"]
+      }
+    end
   end
 end
