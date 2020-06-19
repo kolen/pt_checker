@@ -211,4 +211,18 @@ defmodule PtChecker.Continuity do
   defp first_last_nodes(%{node_ids: node_ids}) do
     {hd(node_ids), List.last(node_ids)}
   end
+
+  @doc """
+  Returns first and last nodes of way when treating it as having given direction
+  """
+  def first_last_nodes_by_direction(way, direction) do
+    {f, l} = first_last_nodes(way)
+
+    case direction do
+      :forward -> {f, l}
+      :unknown_forward -> {f, l}
+      :backward -> {l, f}
+      :unknown_backward -> {l, f}
+    end
+  end
 end
