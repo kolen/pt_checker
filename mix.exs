@@ -20,7 +20,8 @@ defmodule PtChecker.MixProject do
 
   defp deps do
     [
-      {:saxy, "~> 1.1"}
+      {:saxy, "~> 1.1"},
+      {:httpoison, "~> 1.7"}
     ]
   end
 end
