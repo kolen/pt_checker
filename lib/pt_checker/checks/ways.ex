@@ -26,8 +26,6 @@ defmodule PtChecker.Checks.Ways do
         [{:node, break_node_1}, {:node, break_node_2}]
       end)
 
-    # TODO: check presence of ways, add notice if not present
-
     updated_context = %PtChecker.CheckContext{context | ways_directions: ways_directions}
 
     errors_if(updated_context, [
