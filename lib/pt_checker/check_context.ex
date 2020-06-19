@@ -4,6 +4,6 @@ defmodule PtChecker.CheckContext do
   @type t :: %PtChecker.CheckContext{
           relation_id: integer(),
           dataset: OSM.dataset(),
-          ways_directions: PtChecker.Continuity.ways_directions() | nil
+          ways_directions: PtChecker.Continuity.ways_directions()
         }
 end
