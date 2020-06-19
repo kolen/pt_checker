@@ -26,11 +26,11 @@ defmodule PtChecker.Checks.Members do
             case state do
               :stops -> {:platforms, extras}
               :platforms -> {:platforms, extras}
-              :bad -> {:bad, [{type, id} | extras]}
+              :bad -> {:bad, extras}
             end
 
           _ ->
-            {state, true}
+            {state, [{type, id} | extras]}
         end
       end)
 
