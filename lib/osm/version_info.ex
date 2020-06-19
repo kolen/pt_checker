@@ -1,5 +1,10 @@
 defmodule OSM.VersionInfo do
-  defstruct changeset_id: nil, version: nil, timestamp: nil, visible: true, user_id: nil, user: nil
+  defstruct changeset_id: nil,
+            version: nil,
+            timestamp: nil,
+            visible: true,
+            user_id: nil,
+            user: nil
 
   @type t :: %OSM.VersionInfo{
           changeset_id: integer(),
