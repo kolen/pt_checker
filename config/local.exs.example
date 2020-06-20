@@ -1,0 +1,5 @@
+use Mix.Config
+
+config :pt_checker, PtChecker.Repo,
+  username: "foo",
+  password: "bar"

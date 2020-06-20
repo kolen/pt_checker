@@ -29,3 +29,8 @@ config :phoenix, :json_library, Jason
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"
+
+# Define overrides (especially database) specific to dev/test machine
+if File.exists?(Path.expand("local.exs", __DIR__)) do
+  import_config "local.exs"
+end
