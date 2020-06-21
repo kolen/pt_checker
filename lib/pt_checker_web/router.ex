@@ -17,6 +17,7 @@ defmodule PtCheckerWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    resources "/routes", RoutesController, only: [:index, :show]
   end
 
   # Other scopes may use custom stacks.

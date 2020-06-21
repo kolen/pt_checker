@@ -1,0 +1,5 @@
+<%= for route <- @routes do %>
+<a href="<%= Routes.routes_path(@conn, :show, route.id) %>">
+  <div><%= route.ref %></div>
+</a>
+<% end %>
