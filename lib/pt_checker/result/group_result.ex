@@ -6,7 +6,7 @@ defmodule PtChecker.Result.GroupResult do
   # master_messages may exist even if there's no master
   defstruct relation_id: nil,
             master_messages: [],
-            master_tags: %{},
+            master_tags: nil,
             route_results: []
 
   @type t :: %PtChecker.Result.GroupResult{
