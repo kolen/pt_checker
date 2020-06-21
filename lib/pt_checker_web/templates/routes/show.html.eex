@@ -19,3 +19,23 @@
   </section>
   <% end %>
 </section>
+
+<section id="messages">
+  <h2>Validation messages</h2>
+
+  <%= if @result.master_messages && @result.master_messages != [] do %>
+  <section>
+    <h3>Route master</h3>
+
+    <%= render "_messages.html", messages: @result.master_messages %>
+  </section>
+  <% end %>
+
+  <%= for %{messages: messages, relation_id: relation_id} <- @result.route_results do %>
+  <section>
+    <h3>Route <%= relation_id %></h3>
+
+    <%= render "_messages.html", messages: messages %>
+  </section>
+  <% end %>
+</section>

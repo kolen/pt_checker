@@ -1,0 +1,10 @@
+<ul class="validation-messages">
+  <%= for {message_id, severity, references} <- @messages do %>
+  <li class="validation-messages__message validation-messages__message--<%= severity %>">
+    <code><%= message_id %></code>
+    <%= for reference <- references do %>
+    <%= reference %>
+    <% end %>
+  </li>
+  <% end %>
+</ul>

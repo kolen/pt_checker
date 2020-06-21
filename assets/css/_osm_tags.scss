@@ -1,0 +1,28 @@
+.osm-tags {
+    width: 364px;
+    font-size: 11px;
+    border-spacing: 0;
+
+    td {
+        vertical-align: top;
+    }
+}
+
+.osm-tags__key {
+    max-width: 125px;
+    min-width: 125px;
+}
+
+#tags {
+    float: right;
+    background: #ffeaee;
+    border-radius: 13px;
+    padding: 15px;
+    width: 364px;
+}
+
+#tags h3 {
+    font-size: 12px;
+    font-weight: bold;
+    margin: 0;
+}

@@ -2,8 +2,8 @@
   <tbody>
     <%= for {k, v} <- @tags do %>
     <tr>
-      <td class="k"><%= k %></td>
-      <td class="v"><%= v %></td>
+      <td class="osm-tags__key"><%= k %></td>
+      <td class="osm-tags__value"><%= v %></td>
     </tr>
     <% end %>
   </tbody>
