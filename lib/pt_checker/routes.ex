@@ -19,4 +19,8 @@ defmodule PtChecker.Routes do
     query = from r in "routes", select: %{id: r.id, ref: r.ref}
     Repo.all(query)
   end
+
+  def route(id) do
+    Repo.get! Route, id
+  end
 end

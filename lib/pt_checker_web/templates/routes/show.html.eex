@@ -1,0 +1,21 @@
+<h1>Route</h1>
+
+<section id="tags">
+  <h2>Tags</h2>
+
+  <%= if @result.master_tags do %>
+  <section>
+    <h3>Route master, <%= @result.relation_id %></h3>
+
+    <%= render "_tags.html", tags: @result.master_tags %>
+  </section>
+  <% end %>
+
+  <%= for %{tags: tags, relation_id: relation_id} <- @result.route_results do %>
+  <section>
+    <h3>Route <%= relation_id %></h3>
+
+    <%= render "_tags.html", tags: tags %>
+  </section>
+  <% end %>
+</section>

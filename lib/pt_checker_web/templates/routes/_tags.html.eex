@@ -1,0 +1,10 @@
+<table class="osm-tags">
+  <tbody>
+    <%= for {k, v} <- @tags do %>
+    <tr>
+      <td class="k"><%= k %></td>
+      <td class="v"><%= v %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
