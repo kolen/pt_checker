@@ -9,9 +9,20 @@ body {
 }
 
 main {
-    width: 1024px;
+    width: 1010px;
     margin-left: auto;
     margin-right: auto;
+    display: grid;
+    grid-template-columns: repeat(12, 75px);
+    column-gap: 10px;
+}
+
+#messages {
+    grid-column: 1 / span 12;
+    grid-row: 2;
+    background: #f0f0f0;
+    margin-bottom: 12px;
+    padding: 12px;
 }
 
 @import './alerts.scss';

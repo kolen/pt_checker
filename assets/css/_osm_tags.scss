@@ -1,5 +1,5 @@
 .osm-tags {
-    width: 364px;
+    //width: 5fr;
     font-size: 11px;
     border-spacing: 0;
 
@@ -9,16 +9,16 @@
 }
 
 .osm-tags__key {
-    max-width: 125px;
-    min-width: 125px;
+    max-width: 156px;
+    min-width: 156px;
 }
 
 #tags {
-    float: right;
     background: #ffeaee;
-    border-radius: 13px;
-    padding: 15px;
-    width: 364px;
+    border-radius: 12px;
+    padding: 12px;
+    grid-column: 8 / span 5;
+    grid-row: 3;
 }
 
 #tags h3 {
