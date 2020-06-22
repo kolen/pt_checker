@@ -1,7 +1,9 @@
 <ul class="validation-messages">
   <%= for {message_id, severity, references} <- @messages do %>
-  <li class="validation-messages__message validation-messages__message--<%= severity %>">
-    <code><%= message_id %></code>
+  <li class="validation-messages__message">
+    <span class="validation-messages__level validation-messages__level--<%= severity %>"><%= severity %></span>
+    <%= PtChecker.Messages.message_title message_id %>
+    <code class="validation-messages__id"><%= message_id %></code>
     <%= for reference <- references do %>
     <%= reference %>
     <% end %>

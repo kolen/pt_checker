@@ -1,0 +1,81 @@
+## This file is a PO Template file.
+##
+## "msgid"s here are often extracted from source code.
+## Add new translations manually only if they're dynamic
+## translations that can't be statically extracted.
+##
+## Run "mix gettext.extract" to bring this file up to
+## date. Leave "msgstr"s empty as changing them here as no
+## effect: edit them in PO (.po) files instead.
+msgid ""
+msgstr ""
+
+#, elixir-format
+#: lib/pt_checker/messages.ex:8
+msgid "Invalid relation type"
+msgstr ""
+
+#, elixir-format
+#: lib/pt_checker/messages.ex:10
+msgid "Invalid route version"
+msgstr ""
+
+#, elixir-format
+#: lib/pt_checker/messages.ex:32
+msgid "Breaks in continuity of ways"
+msgstr ""
+
+#, elixir-format
+#: lib/pt_checker/messages.ex:22
+msgid "Missing 'from' tag"
+msgstr ""
+
+#, elixir-format
+#: lib/pt_checker/messages.ex:20
+msgid "Missing 'network' tag"
+msgstr ""
+
+#, elixir-format
+#: lib/pt_checker/messages.ex:18
+msgid "Missing 'operator' tag"
+msgstr ""
+
+#, elixir-format
+#: lib/pt_checker/messages.ex:14
+msgid "Missing 'ref' and 'name' tags"
+msgstr ""
+
+#, elixir-format
+#: lib/pt_checker/messages.ex:12
+msgid "Missing 'ref' tag"
+msgstr ""
+
+#, elixir-format
+#: lib/pt_checker/messages.ex:24
+msgid "Missing 'to' tag"
+msgstr ""
+
+#, elixir-format
+#: lib/pt_checker/messages.ex:16
+msgid "Missing public_transport:version tag"
+msgstr ""
+
+#, elixir-format
+#: lib/pt_checker/messages.ex:30
+msgid "Relation contain stops that aren't nodes"
+msgstr ""
+
+#, elixir-format
+#: lib/pt_checker/messages.ex:34
+msgid "Route contains no ways"
+msgstr ""
+
+#, elixir-format
+#: lib/pt_checker/messages.ex:28
+msgid "Unknown extra relation members"
+msgstr ""
+
+#, elixir-format
+#: lib/pt_checker/messages.ex:26
+msgid "Wrong order of relation members"
+msgstr ""

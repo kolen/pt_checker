@@ -25,5 +25,32 @@ main {
     padding: 12px;
 }
 
+.validation-messages__message {
+    list-style-type: none;
+}
+
+.validation-messages__level {
+    font-size: 12px;
+    font-weight: bold;
+    border: 1px solid #b9b9b9;
+    border-radius: 10px;
+    display: inline-block;
+    padding: 0 5px;
+}
+
+.validation-messages__level--warning {
+    background: #fdd596;
+}
+
+.validation-messages__level--error {
+    background: #f58e8e;
+}
+
+.validation-messages__id {
+    font-size: 12px;
+    font-weight: bold;
+    color: #989898;
+}
+
 @import './alerts.scss';
 @import './osm_tags.scss';
