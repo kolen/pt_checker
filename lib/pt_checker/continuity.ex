@@ -226,6 +226,8 @@ defmodule PtChecker.Continuity do
     end
   end
 
+  @type ways_coords :: [[{lat :: float(), lon :: float()}]]
+
   @doc """
   Returns sequence of node coordinates by joining `ways_directions`
   result.

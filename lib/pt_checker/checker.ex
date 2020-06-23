@@ -82,6 +82,7 @@ defmodule PtChecker.Checker do
       relation_id: relation_id,
       messages: messages |> Enum.reverse(),
       ways_directions: context.ways_directions,
+      ways_coords: context.ways_coords,
       tags: relation.tags
     }
   end

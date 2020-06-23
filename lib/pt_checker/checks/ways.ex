@@ -13,6 +13,7 @@ defmodule PtChecker.Checks.Ways do
     _rel = relations[relation_id]
 
     ways_directions = PtChecker.Continuity.route_directions(dataset, relation_id)
+    ways_coords = PtChecker.Continuity.directional_ways_joined_coords(ways_directions, dataset)
     break_pairs = Enum.chunk_every(ways_directions, 2, 1, :discard)
 
     break_nodes =
@@ -26,7 +27,11 @@ defmodule PtChecker.Checks.Ways do
         [{:node, break_node_1}, {:node, break_node_2}]
       end)
 
-    updated_context = %PtChecker.CheckContext{context | ways_directions: ways_directions}
+    updated_context = %PtChecker.CheckContext{
+      context
+      | ways_directions: ways_directions,
+        ways_coords: ways_coords
+    }
 
     errors_if(updated_context, [
       {{:ways_break, :error, break_nodes}, break_nodes != []},
