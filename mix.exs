@@ -35,6 +35,7 @@ defmodule PtChecker.MixProject do
     [
       {:saxy, "~> 1.1"},
       {:httpoison, "~> 1.7"},
+      {:poison, "~> 4.0"},
       {:phoenix, "~> 1.5.3"},
       {:phoenix_ecto, "~> 4.1"},
       {:ecto_sql, "~> 3.4"},

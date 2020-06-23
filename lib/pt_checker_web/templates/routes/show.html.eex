@@ -39,3 +39,10 @@
   </section>
   <% end %>
 </section>
+
+<section id="map">
+</section>
+
+<script>
+ window.route_ways = <%= route_ways_js(@result) %>
+</script>
