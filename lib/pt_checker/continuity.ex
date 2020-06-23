@@ -233,12 +233,14 @@ defmodule PtChecker.Continuity do
   Returns sequence of sequences of coordinates of nodes made by
   joining ways and directions as returned by `ways_directions`.
   """
-  def directional_ways_joined_coords(ways_directions, {ds_nodes, _, _}) do
+  def directional_ways_joined_coords(ways_directions, {ds_nodes, ds_ways, _ds_relations}) do
     ways_directions
     |> Enum.map(fn ways_group ->
       nodes_chunks =
         ways_group
-        |> Enum.map(fn {direction, %OSM.Way{node_ids: nodes}} ->
+        |> Enum.map(fn {way_id, direction} ->
+          %OSM.Way{node_ids: nodes} = ds_ways[way_id]
+
           case direction do
             :forward -> nodes
             :unknown_forward -> nodes

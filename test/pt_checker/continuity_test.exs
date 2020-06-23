@@ -107,8 +107,8 @@ defmodule PtChecker.ContinuityTest do
       coords =
         PtChecker.Continuity.directional_ways_joined_coords(
           [
-            [{:forward, %OSM.Way{node_ids: [1, 2]}}, {:backward, %OSM.Way{node_ids: [3, 2]}}],
-            [{:forward, %OSM.Way{node_ids: [1, 2, 3]}}]
+            [{1, :forward}, {2, :backward}],
+            [{3, :forward}]
           ],
           {
             %{
@@ -116,7 +116,11 @@ defmodule PtChecker.ContinuityTest do
               2 => %OSM.Node{id: 2, lat: 20, lon: 25},
               3 => %OSM.Node{id: 2, lat: 30, lon: 35}
             },
-            %{},
+            %{
+              1 => %OSM.Way{node_ids: [1, 2]},
+              2 => %OSM.Way{node_ids: [3, 2]},
+              3 => %OSM.Way{node_ids: [1, 2, 3]}
+            },
             %{}
           }
         )
